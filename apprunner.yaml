@@ -13,6 +13,6 @@ run:
   command: npm run start:prod
   network:
     port: 3000
-  variables:
+  env:
     MONGO_URI:
       from_secret: arn:aws:secretsmanager:us-east-1:730195520889:secret:mongo-OvgAeI
