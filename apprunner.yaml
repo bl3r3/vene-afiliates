@@ -14,5 +14,5 @@ run:
   network:
     port: 3000
   env:
-    MONGO_URI:
-      from_secret: arn:aws:secretsmanager:us-east-1:730195520889:secret:mongo-OvgAeI
+    - name: MONGO_URI
+      value_from: arn:aws:secretsmanager:us-east-1:730195520889:secret:mongo-OvgAeI
