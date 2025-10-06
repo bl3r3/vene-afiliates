@@ -5,6 +5,7 @@ import {
   ValidationPipe,
   Get,
   Param,
+  Delete,
 } from '@nestjs/common';
 import { AfiliadosService } from './afiliados.service';
 import { CreateAfiliadoDto } from './dto/create-afiliado.dto';
@@ -56,5 +57,13 @@ export class AfiliadosController {
   @ApiResponse({ status: 404, description: 'Afiliado no encontrado.' })
   async getAfiliadoById(@Param('id') id: string) {
     return this.afiliadosService.findById(id);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Eliminar un afiliado por su ID' })
+  @ApiResponse({ status: 200, description: 'Afiliado eliminado exitosamente.' })
+  @ApiResponse({ status: 404, description: 'Afiliado no encontrado.' })
+  async removeAfiliado(@Param('id') id: string) {
+    return this.afiliadosService.remove(id);
   }
 }

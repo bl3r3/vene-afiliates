@@ -65,6 +65,18 @@ export class AfiliadosService {
     ];
   }
 
+  async remove(id: string): Promise<Afiliado> {
+    const afiliadoEliminado = await this.afiliadoModel
+      .findByIdAndDelete(id)
+      .exec();
+
+    if (!afiliadoEliminado) {
+      throw new NotFoundException(`Afiliado con ID "${id}" no encontrado.`);
+    }
+
+    return afiliadoEliminado;
+  }
+
   private calcularEdad(fechaNacimiento: Date): number {
     const hoy = new Date();
     const nacimiento = new Date(fechaNacimiento);
