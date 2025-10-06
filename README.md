@@ -1,73 +1,89 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Sistema de Registro de Afiliados - Backend (CuidaSalud)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este repositorio contiene el servicio backend para la aplicación de registro de afiliados, desarrollado como parte de la prueba técnica de CuidaSalud. La API está construida con **NestJS** y se conecta a una base de datos **MongoDB**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+[DEV URL](https://vene-afiliates.onrender.com/api/)
 
-## Description
+## ✨ Features (Funcionalidades)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Creación de Afiliados (CRUD):** Registro de nuevos afiliados con cálculo automático de cuota anual según la edad.
+- **Consulta de Afiliados (CRUD):** Listado de todos los afiliados con cálculo de edad en tiempo real.
+- **Eliminación de Afiliados (CRUD):** Endpoint para eliminar registros de la base de datos.
+- [cite_start]**Validación de Datos:** Uso de DTOs y `class-validator` para asegurar la integridad de los datos de entrada.
+- [cite_start]**Documentación de API:** Documentación interactiva generada automáticamente con Swagger[cite: 45].
 
-## Installation
+## 🛠️ Tech Stack (Tecnologías Utilizadas)
 
-```bash
-$ npm install
-```
+- [cite_start]**Framework:** NestJS con TypeScript
+- [cite_start]**Base de Datos:** MongoDB con Mongoose
+- [cite_start]**Contenerización:** Docker y Docker Compose
+- [cite_start]**Documentación:** Swagger (OpenAPI)
 
-## Running the app
+## 🚀 Cómo Empezar (Getting Started)
 
-```bash
-# development
-$ npm run start
+Sigue estos pasos para levantar el entorno de desarrollo localmente.
 
-# watch mode
-$ npm run start:dev
+### **Pre-requisitos**
 
-# production mode
-$ npm run start:prod
-```
+- [Node.js](https://nodejs.org/en/) (v16 o superior)
+- [Docker](https://www.docker.com/get-started) y Docker Compose
+- `npm` o `yarn`
 
-## Test
+### **Instalación y Ejecución**
 
-```bash
-# unit tests
-$ npm run test
+1.  **Clona el repositorio:**
 
-# e2e tests
-$ npm run test:e2e
+    ```bash
+    git clone [https://github.com/bl3r3/vene-afiliates.git](https://github.com/bl3r3/vene-afiliates.git)
+    cd vene-afiliates
+    ```
 
-# test coverage
-$ npm run test:cov
-```
+2.  **Crea el archivo de variables de entorno:**
+    Crea un archivo llamado `.env` en la raíz del proyecto y copia el contenido del siguiente ejemplo.
 
-## Support
+    `.env.example`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+    ```env
+    MONGO_URI=mongodb://root:rootpassword@localhost:27018/afiliadosDB?authSource=admin
+    ```
 
-## Stay in touch
+    _Nota: El puerto es `27018` según tu archivo `docker-compose.yaml`._
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3.  **Levanta la base de datos con Docker:**
+    Este comando iniciará un contenedor de MongoDB en segundo plano.
 
-## License
+    ```bash
+    docker-compose up -d
+    ```
 
-Nest is [MIT licensed](LICENSE).
+4.  **Instala las dependencias del proyecto:**
+
+    ```bash
+    npm install
+    ```
+
+5.  **Ejecuta la aplicación en modo de desarrollo:**
+    La API se ejecutará en `http://localhost:3000`.
+    ```bash
+    npm run start:dev
+    ```
+
+## 📄 Documentación de la API (Swagger)
+
+Una vez que la aplicación esté corriendo, puedes acceder a la documentación interactiva de la API generada por Swagger en la siguiente URL:
+
+[**http://localhost:3000/api**](http://localhost:3000/api)
+
+### **Resumen de Endpoints**
+
+| Método   | Ruta                | Descripción                                   |
+| :------- | :------------------ | :-------------------------------------------- |
+| `POST`   | `/afiliados`        | Crea un nuevo afiliado.                       |
+| `GET`    | `/afiliados/all`    | Devuelve una lista de todos los afiliados.    |
+| `GET`    | `/afiliados/:id`    | Busca un afiliado por su ID.                  |
+| `DELETE` | `/afiliados/:id`    | Elimina un afiliado por su ID.                |
+| `GET`    | `/afiliados/search` | Busca afiliados por un término (`?term=...`). |
+
+## ☁️ Despliegue (Deployment)
+
+Es compatible con cualquier plataforma que soporte despliegues desde un `Dockerfile`, como **Render**.
