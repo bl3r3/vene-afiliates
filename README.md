@@ -9,15 +9,15 @@ Este repositorio contiene el servicio backend para la aplicación de registro de
 - **Creación de Afiliados (CRUD):** Registro de nuevos afiliados con cálculo automático de cuota anual según la edad.
 - **Consulta de Afiliados (CRUD):** Listado de todos los afiliados con cálculo de edad en tiempo real.
 - **Eliminación de Afiliados (CRUD):** Endpoint para eliminar registros de la base de datos.
-- [cite_start]**Validación de Datos:** Uso de DTOs y `class-validator` para asegurar la integridad de los datos de entrada.
-- [cite_start]**Documentación de API:** Documentación interactiva generada automáticamente con Swagger[cite: 45].
+- **Validación de Datos:** Uso de DTOs y `class-validator` para asegurar la integridad de los datos de entrada.
+- **Documentación de API:** Documentación interactiva generada automáticamente con Swagger[cite: 45].
 
 ## 🛠️ Tech Stack (Tecnologías Utilizadas)
 
-- [cite_start]**Framework:** NestJS con TypeScript
-- [cite_start]**Base de Datos:** MongoDB con Mongoose
-- [cite_start]**Contenerización:** Docker y Docker Compose
-- [cite_start]**Documentación:** Swagger (OpenAPI)
+- **Framework:** NestJS con TypeScript
+- **Base de Datos:** MongoDB con Mongoose
+- **Contenerización:** Docker y Docker Compose
+- **Documentación:** Swagger (OpenAPI)
 
 ## 🚀 Cómo Empezar (Getting Started)
 
