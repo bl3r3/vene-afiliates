@@ -10,7 +10,7 @@ Este repositorio contiene el servicio backend para la aplicación de registro de
 - **Consulta de Afiliados (CRUD):** Listado de todos los afiliados con cálculo de edad en tiempo real.
 - **Eliminación de Afiliados (CRUD):** Endpoint para eliminar registros de la base de datos.
 - **Validación de Datos:** Uso de DTOs y `class-validator` para asegurar la integridad de los datos de entrada.
-- **Documentación de API:** Documentación interactiva generada automáticamente con Swagger[cite: 45].
+- **Documentación de API:** Documentación interactiva generada automáticamente con Swagger.
 
 ## 🛠️ Tech Stack (Tecnologías Utilizadas)
 
